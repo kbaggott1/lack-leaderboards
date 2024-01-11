@@ -15,7 +15,7 @@ export default function CountDownTimer() {
 
       if (difference <= 0) {
         clearInterval(interval);
-        setTimeLeft(null);
+        setTimeLeft("over");
       } else {
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
@@ -33,6 +33,7 @@ export default function CountDownTimer() {
   return (
     <>
         { timeLeft ? 
+          timeLeft == "over" ? <h2>Game Over!</h2> :
             <div className={styles.countdowntimer}>
                 <TimeBlock time={timeLeft.days} label='Days'></TimeBlock>
                 <TimeBlock time={timeLeft.hours} label='Hours'></TimeBlock>
@@ -40,7 +41,7 @@ export default function CountDownTimer() {
                 <TimeBlock time={timeLeft.seconds} label='Seconds'></TimeBlock>
             </div>
             :
-            <h2>GAME OVER!</h2>
+            <h2>Loading...</h2>
         }
         
     </>
