@@ -1,0 +1,38 @@
+/* PlayerCard.module.css */
+.card {
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 8px;     /* Rounded corners */
+    padding: 16px;          /* Spacing inside the card */
+    margin-bottom: 16px;    /* Spacing between cards */
+    text-align: center;     /* Centering the text */
+    background-color: #ffffff00; /* White background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 500px;
+  }
+  
+.name {
+font-size: 40px;       /* Size of the player's name */
+color: #ffffff;           /* Darker text color for the name */
+margin-bottom: 8px;    /* Spacing between name and lacks */
+}
+
+.lacks {
+font-size: 20px;       /* Size of the lacks number */
+color: #e4e4e4;           /* Lighter text color for the lacks */
+}
+  
+@media screen and (max-width: 768px) {
+    .card {
+        width: 100%;
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+
+    .name {
+        font-size: 18px; /* smaller font size for phones */
+    }
+
+    .lacks {
+        font-size: 14px; /* smaller font size for phones */
+    }
+}

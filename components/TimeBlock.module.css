@@ -1,0 +1,26 @@
+.time {
+    font-size: 35px;
+}
+
+.time h2 {
+    margin-bottom: 10px;
+}
+
+.label {
+    font-size: normal;
+}
+
+.label h3 {
+    margin-top: 0px;
+}
+
+.container {
+    width: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .time {
+        font-size: 25px;
+    }
+
+  }
