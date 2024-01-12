@@ -13,19 +13,69 @@ h1 {
 }
 
 .text-input {
-  background-color: black;
-  color: white;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px; /* This line adds round corners */
+  border-bottom: 2px solid #333;
+  background-color: #282828;
+  color: #fff;
+  font-size: 16px;
+  transition: border-bottom 0.3s ease;
+}
+
+.text-input:focus {
+  outline: none;
+  border-bottom: 2px solid rgb(39, 120, 190);
 }
 
 .button-submit {
-  background-color: black;
+  background-color: #282828;
   border: none;
-  color: white;
+  color: #fff;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 5px; /* This line adds round corners */
+  transition: background-color 0.3s ease;
+}
+ 
+.button-submit:hover {
+ background-color: rgb(39, 120, 190);
+}
+
+.submit-button-container {
+  display: flex;
+  justify-content: center;
 }
 
 .form-container {
   display: flex;
   justify-content: center;
+  height: 95vh;
+}
+
+.form-card {
+  display: flex;
+  width: 500px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  border: 2px solid;
+  border-radius: 8px;
+  border-color: rgb(39, 120, 190);
+}
+
+.form-card h1 {
+  margin-bottom: 60px;
 }
 
 .players-container {
@@ -54,5 +104,13 @@ hr {
 
   hr {
     width: 80%;
+  }
+
+  form {
+    width: 85%;
+  }
+
+  .form-card {
+    border: none;
   }
 }
