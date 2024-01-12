@@ -4,10 +4,9 @@ import { collection, getDocs } from "firebase/firestore/lite";
 
 export default async function handler() {
   const playerCollection = collection(firestore, 'players')
-
   try {
     const querySnapshot = await getDocs(playerCollection);
-    const players = querySnapshot.docs.map(doc => doc.data())
+    const players = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
     return Response.json(players)
   }
   catch(error) {
