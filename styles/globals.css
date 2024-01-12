@@ -31,7 +31,7 @@ h1 {
   border-bottom: 2px solid rgb(39, 120, 190);
 }
 
-.button-submit {
+button {
   background-color: #282828;
   border: none;
   color: #fff;
@@ -47,9 +47,14 @@ h1 {
   transition: background-color 0.3s ease;
 }
  
-.button-submit:hover {
+button:hover {
  background-color: rgb(39, 120, 190);
 }
+
+button:disabled {
+  background-color: rgb(39, 120, 190); /* Darker gray for disabled state */
+  cursor: default; /* Changes the cursor to indicate the button is not clickable */
+ }
 
 .submit-button-container {
   display: flex;

@@ -17,7 +17,7 @@ margin-bottom: 8px;    /* Spacing between name and lacks */
 }
 
 .lacks {
-font-size: 20px;       /* Size of the lacks number */
+font-size: 25px;       /* Size of the lacks number */
 color: #e4e4e4;           /* Lighter text color for the lacks */
 }
   
@@ -29,10 +29,10 @@ color: #e4e4e4;           /* Lighter text color for the lacks */
     }
 
     .name {
-        font-size: 18px; /* smaller font size for phones */
+        font-size: 40px; /* smaller font size for phones */
     }
 
     .lacks {
-        font-size: 14px; /* smaller font size for phones */
+        font-size: 25px; /* smaller font size for phones */
     }
 }
