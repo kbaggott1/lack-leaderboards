@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { firestore } from "../../lib/firebase.js"
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore/lite";
+
 export default async function handler() {
   const playerCollection = collection(firestore, 'players')
 
@@ -14,5 +15,6 @@ export default async function handler() {
     return Response.error({ error: error.message });
   }
 }
+
 
 export const runtime = 'edge';
