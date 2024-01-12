@@ -36,13 +36,13 @@ export default function Home() {
           <CountDownTimer/>
         </div>
         <hr></hr>
-        {players ? (
+        {players ? players.length > 0 ? (
           <div className='players-container'>
             {players.map(player => (
                 <PlayerCard key={player.id} player={player}></PlayerCard>
             ))}
           </div>
-        ) : (
+        ) : <p>Could not get players.</p> : (
           <p>Loading...</p>
         )}
       </div>
