@@ -11,7 +11,7 @@ export default async function handler() {
   }
   catch(error) {
     console.error("Error fetching players:", error);
-    return Response.json({ error: error.message });
+    return Response.error({ error: error.message });
   }
 }
 
