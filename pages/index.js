@@ -2,9 +2,16 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import PlayerCard from '@/components/PlayerCard.js';
 import CountDownTimer from '@/components/CountDownTimer';
+import { UserContext } from '@/context/UserContext';
+import { useContext } from 'react';
+import { useRouter } from 'next/router';
+import {auth} from '@/lib/firebase.js'
+import { signOut } from 'firebase/auth';
 
 export default function Home() {
   const [players, setPlayers] = useState(null); // Store players data
+  const {user, setUser} = useContext(UserContext);
+  const router = useRouter();
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -24,12 +31,29 @@ export default function Home() {
     fetchPlayers();
   }, []); // Empty dependency array ensures this runs once on mount
 
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      router.reload();
+    }).catch((error) => {
+      console.error('Error signing out: ', error);
+    });
+   };   
+
   return (
     <>
       <Head>
         <title>Lack Leaderboards</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
       </Head>
+      <div className='nav-computer'>
+        {
+          !user ? 
+          <a onClick={() => {router.push('/login')}}>Login</a>
+          :
+          <a onClick={handleSignOut}>Logout</a>
+
+        }
+      </div>
       <div className='leaderboards-container'>
         <div className='title-container'>
           <h1>Lack Leaderboards</h1>
@@ -38,13 +62,22 @@ export default function Home() {
         <hr></hr>
         {players ? players.length > 0 ? (
           <div className='players-container'>
-            {players.map(player => (
-                <PlayerCard key={player.id} player={player}></PlayerCard>
+            {players.sort((a, b) => Number(b.lacks) - Number(a.lacks)).map(player => (
+              <PlayerCard key={player.id} player={player}></PlayerCard>
             ))}
           </div>
         ) : <p>Could not get players.</p> : (
           <p>Loading...</p>
         )}
+      </div>
+      <div className='nav-phone'>
+        {
+          !user ? 
+          <a onClick={() => {router.push('/login')}}>Login</a>
+          :
+          <a onClick={handleSignOut}>Logout</a>
+
+        }
       </div>
     </>
   );

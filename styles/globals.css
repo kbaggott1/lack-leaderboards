@@ -76,7 +76,7 @@ button:disabled {
   margin: auto;
   border: 2px solid;
   border-radius: 8px;
-  border-color: rgb(39, 120, 190);
+  border-color: white;
 }
 
 .form-card h1 {
@@ -94,8 +94,29 @@ button:disabled {
   text-align: center;
 }
 
-.title-container {
+.nav-computer {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 5%;
+  margin-top: 20px;
+}
 
+.nav-phone {
+  display: none;
+}
+
+a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.title-container h1 {
+  margin-top: 50px;
 }
 
 hr {
@@ -117,5 +138,20 @@ hr {
 
   .form-card {
     border: none;
+  }
+
+  .nav-computer {
+    display: none;
+  }
+
+  .nav-phone {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .nav-phone a {
+    font-size: 30px;
   }
 }

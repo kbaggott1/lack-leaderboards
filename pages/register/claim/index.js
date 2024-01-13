@@ -1,7 +1,7 @@
 import styles from './claim.module.css'
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '@/context/UserContext';
-import PlayerCard from '@/components/PlayerCard';
+import PlayerCardClaim from '@/components/PlayerCardClaim';
 
 export default function Claim() {
     const [players, setPlayers] = useState(null); // Store players data
@@ -28,9 +28,8 @@ export default function Claim() {
         <div>
             {user ?
                 <div className='players-container'>
-                    
                     {players && players.map(player => (
-                        <PlayerCard key={player.id} player={player} claimCard={true}></PlayerCard>
+                        <PlayerCardClaim key={player.id} player={player} claimCard={true}></PlayerCardClaim>
                     ))}
                 </div>
                 :

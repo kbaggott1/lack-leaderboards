@@ -4,18 +4,24 @@ import { doc, setDoc, collection } from "firebase/firestore/lite";
 export default async function handler(req, res) {
     if (req.method === 'PUT') {
       try {
-        const { playerId } = req.query;
-        const playerData = req.body;
+        //console.log(req.nextUrl.searchParams.get(['playerId']))
+        const playerId = req.nextUrl.searchParams.get(['playerId']);
+        const playerData = await req.json();
         // Update the player in Firestore
         const playerRef = doc(firestore, "players", playerId)
-        await setDoc(playerRef, playerData);
+
+        await setDoc(playerRef, {
+          name: playerData.name,
+          lacks: playerData.lacks.toString(),
+          userId: playerData.userId
+        });
    
         // Send success response
-        res.status(200).json({ message: 'Player updated successfully.' });
+        Response.json({ message: 'Player updated successfully.' });
       } catch (error) {
         // Handle error
         console.error(error);
-        res.status(500).json({ error: 'Error updating player.' });
+        Response.error({ error: 'Error updating player.' });
       }
     } else {
       // Handle any other HTTP method
