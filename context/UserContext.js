@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { onAuthStateChanged, signInAnonymously } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 export const UserContext = createContext();
 
@@ -11,12 +11,6 @@ export const UserProvider = ({ children }) => {
  
   if (persistedUser) {
     setUser(JSON.parse(persistedUser));    
-    signInAnonymously(auth).then((userCredential) => {
-      setUser(userCredential.user);
-      localStorage.setItem('user', JSON.stringify(userCredential.user));
-    }).catch((error) => {
-      console.log(error);
-    });
   }
  
   const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
