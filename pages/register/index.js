@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { app, auth } from '../../lib/firebase.js'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { UserContext } from "@/context/UserContext.js";
@@ -10,6 +10,12 @@ export default function Register() {
     const [password2, setPassword2] = useState("");
     const {user, setUser} = useContext(UserContext);
     const router = useRouter();
+
+    useEffect(() => {
+        if(user) {
+            router.push('/');
+        }
+    }, [user])
 
     const isValid = () => {
         if(email == "") {

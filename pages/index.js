@@ -16,6 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     // Fetch data when the component mounts
+    console.log(user)
     const fetchPlayers = async () => {
       try {
         const response = await fetch('/api/players');
