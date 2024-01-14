@@ -1,17 +1,20 @@
 import styles from './PlayerCard.module.css';
 import { UserContext } from '@/context/UserContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 export default function PlayerCard({player}) {
   const {user, setUser} = useContext(UserContext);
+  const [lacks, setLacks] = useState(player.lacks);
 
   const handleIncrement = (player) => {
     player.lacks = (Number(player.lacks) + 1).toString();
+    setLacks(player.lacks);
     updatePlayer(player);
   }
 
   const handleDeccrement = (player) => {
     player.lacks = (Math.max(Number(player.lacks) - 1, 0)).toString();
+    setLacks(player.lacks);
     updatePlayer(player);
   }
 
@@ -41,7 +44,7 @@ export default function PlayerCard({player}) {
         }
         <div>
           <div className={styles.name}>{player.name}</div>
-          <div className={styles.lacks}>Lacks: <b>{player.lacks}</b></div>
+          <div className={styles.lacks}>Lacks: <b>{lacks}</b></div>
         </div>
         {
           user && player.userId != user.uid && <button className={styles.cardButton} onClick={() => { handleIncrement(player) }}>+</button>
