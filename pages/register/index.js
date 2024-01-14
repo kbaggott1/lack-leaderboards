@@ -11,12 +11,6 @@ export default function Register() {
     const {user, setUser} = useContext(UserContext);
     const router = useRouter();
 
-    useEffect(() => {
-        if(user) {
-            router.push('/');
-        }
-    }, [user])
-
     const isValid = () => {
         if(email == "") {
             alert("Email field cannot be empty");
