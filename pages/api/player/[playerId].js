@@ -1,5 +1,5 @@
 import { firestore } from "@/lib/firebase";
-import { doc, setDoc, collection, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore/lite";
 
 export default async function handler(req, res) {
     if (req.method === 'PUT') {
