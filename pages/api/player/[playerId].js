@@ -1,5 +1,5 @@
 import { firestore } from "@/lib/firebase";
-import { doc, setDoc, collection } from "firebase/firestore/lite";
+import { doc, setDoc, collection, updateDoc } from "firebase/firestore";
 
 export default async function handler(req, res) {
     if (req.method === 'PUT') {
@@ -10,7 +10,7 @@ export default async function handler(req, res) {
         // Update the player in Firestore
         const playerRef = doc(firestore, "players", playerId)
 
-        await setDoc(playerRef, {
+        await updateDoc(playerRef, {
           name: playerData.name,
           lacks: playerData.lacks.toString(),
           userId: playerData.userId
