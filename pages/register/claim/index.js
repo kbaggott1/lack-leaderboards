@@ -23,7 +23,6 @@ export default function Claim() {
     
         fetchPlayers();
       }, []);
-
     return (
         <div>
             {user ?

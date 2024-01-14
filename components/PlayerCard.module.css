@@ -1,5 +1,8 @@
 /* PlayerCard.module.css */
 .card {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
     border: 1px solid #ddd; /* Light gray border */
     border-radius: 8px;     /* Rounded corners */
     padding: 16px;          /* Spacing inside the card */
@@ -8,8 +11,27 @@
     background-color: #ffffff00; /* White background */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     width: 500px;
-  }
+}
   
+.cardButton {
+    background-color: white;
+    color: rgb(9, 9, 27);
+    font-size: x-large;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    background-color: rgb(9, 9, 27);
+    border: 1px solid white;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.cardButton:hover {
+    background-color: white;
+    color: rgb(9, 9, 27);
+}
+
 .name {
 font-size: 40px;       /* Size of the player's name */
 color: #ffffff;           /* Darker text color for the name */

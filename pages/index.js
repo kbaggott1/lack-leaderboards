@@ -57,7 +57,7 @@ export default function Home() {
       <div className='leaderboards-container'>
         <div className='title-container'>
           <h1>Lack Leaderboards</h1>
-          <CountDownTimer/>
+          <CountDownTimer />
         </div>
         <hr></hr>
         {players ? players.length > 0 ? (
