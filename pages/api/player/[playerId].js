@@ -1,5 +1,5 @@
 import { firestore } from "@/lib/firebase";
-import { doc, setDoc, collection } from "firebase/firestore/lite";
+import { doc, updateDoc } from "firebase/firestore/lite";
 
 export default async function handler(req, res) {
     if (req.method === 'PUT') {
@@ -10,7 +10,7 @@ export default async function handler(req, res) {
         // Update the player in Firestore
         const playerRef = doc(firestore, "players", playerId)
 
-        await setDoc(playerRef, {
+        await updateDoc(playerRef, {
           name: playerData.name,
           lacks: playerData.lacks.toString(),
           userId: playerData.userId
@@ -23,11 +23,7 @@ export default async function handler(req, res) {
         console.error(error);
         Response.error({ error: 'Error updating player.' });
       }
-    } else {
-      // Handle any other HTTP method
-      res.setHeader('Allow', ['PUT']);
-      res.status(405).end(`Method ${req.method} Not Allowed`);
     }
+    Response.error({ error: 'Something went wrong' })
    }
-
    export const runtime = 'edge';

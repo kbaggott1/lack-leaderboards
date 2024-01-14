@@ -5,8 +5,9 @@ import CountDownTimer from '@/components/CountDownTimer';
 import { UserContext } from '@/context/UserContext';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
-import {auth} from '@/lib/firebase.js'
+import {auth, firestore} from '@/lib/firebase.js'
 import { signOut } from 'firebase/auth';
+import { collection, onSnapshot } from 'firebase/firestore/lite';
 
 export default function Home() {
   const [players, setPlayers] = useState(null); // Store players data
@@ -15,6 +16,7 @@ export default function Home() {
 
   useEffect(() => {
     // Fetch data when the component mounts
+    console.log(user)
     const fetchPlayers = async () => {
       try {
         const response = await fetch('/api/players');
@@ -30,6 +32,36 @@ export default function Home() {
 
     fetchPlayers();
   }, []); // Empty dependency array ensures this runs once on mount
+
+  // useEffect(() => {
+  //   // Fetch data when the component mounts
+  //   const fetchPlayers = async () => {
+  //     try {
+  //       const response = await fetch('/api/players');
+  //       if (!response.ok) {
+  //         throw new Error(`Error: ${response.status}`);
+  //       }
+  //       const data = await response.json();
+  //       setPlayers(data); // Update state with fetched data
+  //     } catch (error) {
+  //       console.error("Failed to fetch players:", error);
+  //     }
+  //   };
+   
+  //   fetchPlayers(); // Initial fetch
+   
+  //   // Use Firestore's onSnapshot method to listen for real-time updates
+  //   const unsubscribe = onSnapshot(collection(firestore, "players"), (snapshot) => {
+  //     const updatedPlayers = [];
+  //     snapshot.forEach((doc) => {
+  //       updatedPlayers.push({ id: doc.id, ...doc.data() });
+  //     });
+  //     setPlayers(updatedPlayers);
+  //   });
+   
+  //   // Cleanup function to clear the listener when the component unmounts
+  //   return () => unsubscribe();
+  //  }, []); // Empty dependency array ensures this runs once on mount
 
   const handleSignOut = () => {
     signOut(auth).then(() => {
