@@ -24,6 +24,6 @@ export default async function handler(req, res) {
         Response.error({ error: 'Error updating player.' });
       }
     }
-    Response.error('something went wrong')
+    Response.error({ error: 'Something went wrong' })
    }
    export const runtime = 'edge';
