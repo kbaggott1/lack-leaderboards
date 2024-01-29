@@ -1,11 +1,11 @@
 {
-    "name": "My Next.js PWA",
-    "short_name": "NextPWA",
-    "description": "A Progressive Web App built with Next.js",
+    "name": "Lack Leaderboards",
+    "short_name": "LackLeaderboards",
+    "description": "Lack PWA",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#0070f3",
+    "background_color": "#09091b",
+    "theme_color": "#09091b",
     "icons": [
       {
         "src": "/icon.png",
