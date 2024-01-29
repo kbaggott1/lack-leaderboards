@@ -1,0 +1,16 @@
+{
+    "name": "Lack Leaderboards",
+    "short_name": "Lacks",
+    "description": "Lack PWA",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#09091b",
+    "theme_color": "#09091b",
+    "icons": [
+      {
+        "src": "/icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }
