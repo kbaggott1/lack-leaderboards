@@ -26,7 +26,7 @@ export default function PlayerCard({player}) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(player)
+        body: JSON.stringify({target: player, user: user})
       });
       
       if (!response.ok) {
