@@ -7,7 +7,7 @@ export default function CountDownTimer() {
   const [timeLeft, setTimeLeft] = useState(null);
 
   useEffect(() => {
-    const targetDate = new Date('2025-01-01T00:00:00'); // Set your target date/time
+    const targetDate = new Date('2026-01-01T00:00:00'); // Set your target date/time
 
     const interval = setInterval(() => {
       const now = new Date();
