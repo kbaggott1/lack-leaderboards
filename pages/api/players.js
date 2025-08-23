@@ -4,8 +4,8 @@ export const runtime = 'edge';
 
 export default async function handler() {
   try {
-    const PROJECT_ID = process.env.NEXT_PUBLIC_FB_PROJECT_ID;
-    const API_KEY = process.env.NEXT_PUBLIC_FB_API_KEY; // ok if reads are public
+    const PROJECT_ID = process.env.NEXT_PUBLIC_PROJECT_ID;
+    const API_KEY = process.env.NEXT_PUBLIC_API_KEY; // ok if reads are public
     const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/players?pageSize=1000&key=${API_KEY}`;
 
     const r = await fetch(url, { cache: 'no-store' });
